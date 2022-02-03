@@ -4,7 +4,7 @@ class AnswerEntity extends Equatable {
   final int idAnswer;
   final String answer;
 
-  AnswerEntity(this.idAnswer, this.answer);
+  AnswerEntity({required this.idAnswer, required this.answer});
 
   @override
   List<Object?> get props => [idAnswer, answer];

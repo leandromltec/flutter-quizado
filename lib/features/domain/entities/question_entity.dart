@@ -6,7 +6,11 @@ class QuestionEntity extends Equatable {
   final int idQuestionAnswer;
   final List<AnswerEntity> listAnswer;
 
-  QuestionEntity(this.question, this.idQuestionAnswer, this.listAnswer);
+  QuestionEntity({
+    required this.question,
+    required this.idQuestionAnswer,
+    required this.listAnswer
+  });
 
   @override
   List<Object?> get props => [question, idQuestionAnswer];

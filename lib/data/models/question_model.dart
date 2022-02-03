@@ -3,6 +3,8 @@ import 'package:appquiz/features/domain/entities/question_entity.dart';
 
 class QuestionModel extends QuestionEntity {
   QuestionModel(
-      String question, int idQuestionAnswer, List<AnswerEntity> listAnswer)
-      : super(question, idQuestionAnswer, listAnswer);
+      {required String question,
+      required int idQuestionAnswer,
+      required List<AnswerEntity> listAnswer})
+      : super(question: question, idQuestionAnswer: idQuestionAnswer, listAnswer: listAnswer);
 }
