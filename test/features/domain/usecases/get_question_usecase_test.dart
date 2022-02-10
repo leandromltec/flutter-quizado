@@ -1,6 +1,5 @@
 //Inicia os testes
 import 'package:appquiz/core/erros/failure.dart';
-import 'package:appquiz/core/usecase/usecase.dart';
 import 'package:appquiz/features/domain/entities/answer_entity.dart';
 import 'package:appquiz/features/domain/entities/question_entity.dart';
 import 'package:appquiz/features/domain/respositories/question_repository.dart';
@@ -20,7 +19,7 @@ void main() {
   final tQuestion = QuestionEntity(
       question: "Pergunta", idQuestionAnswer: 3, listAnswer: list);
 
-  final tNoParams = NoParams();
+  final String tCategory = "category";
 
   //Validado antes da função test
   setUp(() {
@@ -32,9 +31,9 @@ void main() {
   //body - resposta a ser recebida
   //Right - resposta de sucesso
   test("pergunta retornada", () async {
-    when(() => repository.getQuestion())
+    when(() => repository.getQuestion(tCategory))
         .thenAnswer((_) async => Right<Failure, QuestionEntity>(tQuestion));
-    final result = await usecase(tNoParams);
+    final result = await usecase(tCategory);
 
     //Espera o resultado e que seja
     expect(result, Right(tQuestion));

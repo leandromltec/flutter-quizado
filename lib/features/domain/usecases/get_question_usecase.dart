@@ -8,13 +8,13 @@ import '../../../core/usecase/usecase.dart';
 import '../entities/question_entity.dart';
 import 'package:dartz/dartz.dart';
 
-class GetQuestionUsecase implements UseCase<QuestionEntity, NoParams> {
+class GetQuestionUsecase implements UseCase<QuestionEntity, String> {
   final IQuestionRepository repository;
 
   GetQuestionUsecase(this.repository);
 
   @override
-  Future<Either<Failure, QuestionEntity>> call(NoParams params) async {
-    return await repository.getQuestion();
+  Future<Either<Failure, QuestionEntity>> call(String category) async {
+    return await repository.getQuestion(category);
   }
 }
